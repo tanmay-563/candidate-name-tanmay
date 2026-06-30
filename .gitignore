@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.pyc.*
+*.egg-info/
+.coverage
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.venv/
+build/
+dist/
+env/
+ENV/
+htmlcov/
+pip-wheel-metadata/
+tmp_pycache/
+
+# Editors and OS files
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
+
+# Local environment files
+.env
+.env.*
+
+# Data outputs
+data/output/
+data/tmp/
