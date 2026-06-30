@@ -1,44 +1,35 @@
-"""Parsing contracts for converting raw source payloads into structured documents."""
+"""File parsers for converting raw source inputs into candidate models."""
 
 from __future__ import annotations
 
-from collections.abc import Mapping
-from dataclasses import dataclass, field
-from typing import Protocol
+from candidate_data_transformer.parsers.base import BaseParser
+from candidate_data_transformer.parsers.exceptions import (
+    EmptyParseResultError,
+    MultipleCandidatesError,
+    ParserError,
+    ParserFileError,
+    ParserInputError,
+    UnsupportedParserError,
+)
+from candidate_data_transformer.parsers.factory import ParserFactory
+from candidate_data_transformer.parsers.github_json import GitHubJSONParser
+from candidate_data_transformer.parsers.recruiter_csv import RecruiterCSVParser
+from candidate_data_transformer.parsers.registry import (
+    ParserRegistry,
+    build_parser_registry,
+)
 
-from candidate_data_transformer.models import RawCandidatePayload, SourceDocument
-
-
-class CandidateParser(Protocol):
-    """Interface for source-specific payload parsers."""
-
-    def parse(self, raw_payload: RawCandidatePayload) -> SourceDocument:
-        """Convert a raw candidate payload into a structured source document."""
-
-
-@dataclass(slots=True)
-class ParserRegistry:
-    """Registry for associating source names with parser implementations."""
-
-    parsers: dict[str, CandidateParser] = field(default_factory=dict)
-
-    def register(self, source_name: str, parser: CandidateParser) -> None:
-        """Register a parser for a named source."""
-
-        self.parsers[source_name] = parser
-
-    def get(self, source_name: str) -> CandidateParser:
-        """Retrieve the parser associated with a named source."""
-
-        return self.parsers[source_name]
-
-    def snapshot(self) -> Mapping[str, CandidateParser]:
-        """Return a read-only style view of the registered parser mapping."""
-
-        return dict(self.parsers)
-
-
-def build_parser_registry() -> ParserRegistry:
-    """Create an empty parser registry for future dependency wiring."""
-
-    return ParserRegistry()
+__all__ = [
+    "BaseParser",
+    "EmptyParseResultError",
+    "GitHubJSONParser",
+    "MultipleCandidatesError",
+    "ParserError",
+    "ParserFactory",
+    "ParserFileError",
+    "ParserInputError",
+    "ParserRegistry",
+    "RecruiterCSVParser",
+    "UnsupportedParserError",
+    "build_parser_registry",
+]

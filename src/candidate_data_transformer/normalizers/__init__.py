@@ -1,44 +1,27 @@
-"""Normalization contracts for mapping parsed documents into canonical records."""
+"""Normalization components for canonicalizing candidate profile data."""
 
 from __future__ import annotations
 
-from collections.abc import Sequence
-from dataclasses import dataclass, field
-from typing import Protocol
+from candidate_data_transformer.normalizers.base import BaseNormalizer
+from candidate_data_transformer.normalizers.candidate import CandidateNormalizer
+from candidate_data_transformer.normalizers.date import DateNormalizer
+from candidate_data_transformer.normalizers.email import EmailNormalizer
+from candidate_data_transformer.normalizers.location import LocationNormalizer
+from candidate_data_transformer.normalizers.phone import PhoneNormalizer
+from candidate_data_transformer.normalizers.service import (
+    NormalizationService,
+    build_normalization_service,
+)
+from candidate_data_transformer.normalizers.skill import SkillNormalizer
 
-from candidate_data_transformer.models import CandidateRecord, SourceDocument
-
-
-class CandidateNormalizer(Protocol):
-    """Interface for transforming parsed source documents into canonical records."""
-
-    def normalize(self, document: SourceDocument) -> CandidateRecord:
-        """Normalize a parsed source document into a canonical candidate record."""
-
-
-@dataclass(slots=True)
-class NormalizationService:
-    """Service shell for coordinating future normalization workflows."""
-
-    normalizers: dict[str, CandidateNormalizer] = field(default_factory=dict)
-
-    def register(self, source_name: str, normalizer: CandidateNormalizer) -> None:
-        """Register a normalizer for a named source."""
-
-        self.normalizers[source_name] = normalizer
-
-    def normalize_documents(
-        self,
-        documents: Sequence[SourceDocument],
-    ) -> list[CandidateRecord]:
-        """Normalize parsed documents into canonical candidate records."""
-
-        raise NotImplementedError(
-            "NormalizationService.normalize_documents is not implemented yet."
-        )
-
-
-def build_normalization_service() -> NormalizationService:
-    """Create a placeholder normalization service."""
-
-    return NormalizationService()
+__all__ = [
+    "BaseNormalizer",
+    "CandidateNormalizer",
+    "DateNormalizer",
+    "EmailNormalizer",
+    "LocationNormalizer",
+    "NormalizationService",
+    "PhoneNormalizer",
+    "SkillNormalizer",
+    "build_normalization_service",
+]
