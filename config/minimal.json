@@ -1,0 +1,39 @@
+{
+  "projection": {
+    "select_fields": [
+      "full_name",
+      "emails[0]",
+      "phones[0]"
+    ],
+    "rename_fields": {
+      "emails[0]": "primary_email",
+      "phones[0]": "primary_phone"
+    },
+    "include_confidence": false,
+    "include_provenance": false,
+    "missing_value_policy": "error",
+    "normalization": {
+      "full_name": true,
+      "emails[0]": true,
+      "phones[0]": true
+    }
+  },
+  "schema": {
+    "type": "object",
+    "allow_extra_fields": false,
+    "properties": {
+      "full_name": {
+        "type": "string",
+        "required": true
+      },
+      "primary_email": {
+        "type": "string",
+        "required": true
+      },
+      "primary_phone": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }
+}

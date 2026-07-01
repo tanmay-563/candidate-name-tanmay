@@ -1,4 +1,4 @@
-"""Configuration objects and helpers for the project scaffold."""
+"""Configuration objects and helpers for project paths and runtime settings."""
 
 from __future__ import annotations
 

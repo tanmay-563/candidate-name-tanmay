@@ -1,4 +1,4 @@
-"""Application composition layer for wiring the project scaffold together."""
+"""Application composition layer for wiring the runtime transformation pipeline."""
 
 from __future__ import annotations
 
@@ -23,13 +23,13 @@ class Application:
     logger: logging.Logger
 
     def bootstrap(self) -> None:
-        """Prepare the application shell for future runtime execution."""
+        """Prepare the application shell for runtime execution."""
 
         self.logger.debug("Application bootstrap completed.")
 
 
 def build_application(project_root: Path | None = None) -> Application:
-    """Construct the application shell with default placeholder dependencies."""
+    """Construct the application shell with default pipeline dependencies."""
 
     settings = load_settings(project_root=project_root)
     logger = configure_logging()

@@ -3,28 +3,42 @@ __pycache__/
 *.pyc.*
 *.egg-info/
 .coverage
+.coverage.*
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
+.tox/
+.nox/
 .venv/
+.python-version
 build/
 dist/
 env/
 ENV/
+venv/
 htmlcov/
 pip-wheel-metadata/
 tmp_pycache/
+coverage.xml
+*.log
+*.tmp
 
 # Editors and OS files
 .DS_Store
 .idea/
 .vscode/
 Thumbs.db
+*.swp
+*.swo
 
 # Local environment files
 .env
 .env.*
 
-# Data outputs
+# Generated local data
 data/output/
 data/tmp/
+
+# Keep the sample submission artifact, ignore other ad hoc outputs
+output/*
+!output/result.json

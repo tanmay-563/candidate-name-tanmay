@@ -1,4 +1,4 @@
-"""Top-level package for the candidate data transformation scaffold."""
+"""Top-level package for the candidate data transformation pipeline."""
 
 from __future__ import annotations
 

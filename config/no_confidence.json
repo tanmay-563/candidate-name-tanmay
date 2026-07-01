@@ -1,0 +1,92 @@
+{
+  "projection": {
+    "select_fields": [
+      "full_name",
+      "emails[0]",
+      "phones[0]",
+      "location",
+      "skills",
+      "links"
+    ],
+    "rename_fields": {
+      "emails[0]": "primary_email",
+      "phones[0]": "primary_phone"
+    },
+    "include_confidence": false,
+    "include_provenance": true,
+    "missing_value_policy": "omit",
+    "normalization": {
+      "full_name": true,
+      "location": true
+    }
+  },
+  "schema": {
+    "type": "object",
+    "allow_extra_fields": false,
+    "properties": {
+      "full_name": {
+        "type": "string",
+        "required": true
+      },
+      "primary_email": {
+        "type": "string",
+        "required": true
+      },
+      "primary_phone": {
+        "type": "string",
+        "required": true
+      },
+      "location": {
+        "type": "string",
+        "required": false
+      },
+      "skills": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "links": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "required": false
+            },
+            "url": {
+              "type": "string",
+              "required": false
+            }
+          }
+        }
+      },
+      "provenance": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "field": {
+              "type": "string",
+              "required": true
+            },
+            "source": {
+              "type": "string",
+              "required": true
+            },
+            "method": {
+              "type": "string",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "projection": {
+    "select_fields": [
+      "full_name",
+      "headline",
+      "emails[0]",
+      "phones[0]",
+      "location",
+      "skills",
+      "links"
+    ],
+    "rename_fields": {
+      "full_name": "candidate_name",
+      "headline": "professional_summary",
+      "emails[0]": "email_address",
+      "phones[0]": "mobile_number",
+      "location": "current_location"
+    },
+    "include_confidence": true,
+    "include_provenance": false,
+    "missing_value_policy": "omit",
+    "normalization": {
+      "full_name": true,
+      "headline": true,
+      "location": true
+    }
+  },
+  "schema": {
+    "type": "object",
+    "allow_extra_fields": false,
+    "properties": {
+      "candidate_name": {
+        "type": "string",
+        "required": true
+      },
+      "professional_summary": {
+        "type": "string",
+        "required": false
+      },
+      "email_address": {
+        "type": "string",
+        "required": true
+      },
+      "mobile_number": {
+        "type": "string",
+        "required": true
+      },
+      "current_location": {
+        "type": "string",
+        "required": false
+      },
+      "skills": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "links": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "required": false
+            },
+            "url": {
+              "type": "string",
+              "required": false
+            }
+          }
+        }
+      },
+      "confidence": {
+        "type": "object",
+        "required": true,
+        "allow_extra_fields": false,
+        "properties": {
+          "overall": {
+            "type": "number",
+            "required": true
+          },
+          "fields": {
+            "type": "object",
+            "required": true,
+            "allow_extra_fields": true
+          }
+        }
+      }
+    }
+  }
+}
