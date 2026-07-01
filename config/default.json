@@ -1,0 +1,172 @@
+{
+  "projection": {
+    "select_fields": [
+      "full_name",
+      "headline",
+      "emails[0]",
+      "phones[0]",
+      "location",
+      "skills",
+      "links",
+      "experience",
+      "education"
+    ],
+    "rename_fields": {
+      "emails[0]": "primary_email",
+      "phones[0]": "primary_phone"
+    },
+    "include_confidence": true,
+    "include_provenance": true,
+    "missing_value_policy": "omit",
+    "normalization": {
+      "full_name": true,
+      "headline": true,
+      "location": true
+    }
+  },
+  "schema": {
+    "type": "object",
+    "allow_extra_fields": false,
+    "properties": {
+      "full_name": {
+        "type": "string",
+        "required": true
+      },
+      "headline": {
+        "type": "string",
+        "required": false
+      },
+      "primary_email": {
+        "type": "string",
+        "required": true
+      },
+      "primary_phone": {
+        "type": "string",
+        "required": true
+      },
+      "location": {
+        "type": "string",
+        "required": false
+      },
+      "skills": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "string"
+        }
+      },
+      "links": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "required": false
+            },
+            "url": {
+              "type": "string",
+              "required": false
+            }
+          }
+        }
+      },
+      "experience": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "company": {
+              "type": "string",
+              "required": false
+            },
+            "title": {
+              "type": "string",
+              "required": false
+            },
+            "start_date": {
+              "type": "string",
+              "required": false
+            },
+            "end_date": {
+              "type": "string",
+              "required": false
+            },
+            "summary": {
+              "type": "string",
+              "required": false
+            }
+          }
+        }
+      },
+      "education": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "institution": {
+              "type": "string",
+              "required": false
+            },
+            "degree": {
+              "type": "string",
+              "required": false
+            },
+            "field": {
+              "type": "string",
+              "required": false
+            },
+            "end_year": {
+              "type": "integer",
+              "required": false
+            }
+          }
+        }
+      },
+      "confidence": {
+        "type": "object",
+        "required": true,
+        "allow_extra_fields": false,
+        "properties": {
+          "overall": {
+            "type": "number",
+            "required": true
+          },
+          "fields": {
+            "type": "object",
+            "required": true,
+            "allow_extra_fields": true
+          }
+        }
+      },
+      "provenance": {
+        "type": "list",
+        "required": true,
+        "items": {
+          "type": "object",
+          "allow_extra_fields": false,
+          "properties": {
+            "field": {
+              "type": "string",
+              "required": true
+            },
+            "source": {
+              "type": "string",
+              "required": true
+            },
+            "method": {
+              "type": "string",
+              "required": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

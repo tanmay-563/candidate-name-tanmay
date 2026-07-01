@@ -1,0 +1,25 @@
+{
+  "login": "tanmay-sharma",
+  "name": "Tanmay S.",
+  "bio": "Senior   Backend Engineer building scalable data platforms",
+  "repos": [
+    {
+      "name": "candidate-transformer",
+      "language": "Python"
+    },
+    {
+      "name": "streaming-toolkit",
+      "languages": [
+        "Go",
+        "SQL"
+      ]
+    }
+  ],
+  "languages": [
+    "python3",
+    "js"
+  ],
+  "email": "tanmay.sharma@gmail.com",
+  "location": " Bengaluru , Karnataka , India ",
+  "html_url": "https://github.com/tanmay-sharma"
+}

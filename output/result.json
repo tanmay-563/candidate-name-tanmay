@@ -1,0 +1,102 @@
+{
+  "full_name": "Tanmay Sharma",
+  "headline": "Senior Backend Engineer building scalable data platforms",
+  "primary_email": "tanmay.sharma@gmail.com",
+  "primary_phone": "+919876543210",
+  "location": "Bengaluru, Karnataka, India",
+  "skills": [
+    "Go",
+    "JavaScript",
+    "Python",
+    "SQL"
+  ],
+  "links": [
+    {
+      "type": "github",
+      "url": "https://github.com/tanmay-sharma"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Eightfold AI",
+      "title": "Backend Engineer",
+      "start_date": null,
+      "end_date": null,
+      "summary": null
+    }
+  ],
+  "education": [],
+  "confidence": {
+    "overall": 0.3636,
+    "fields": {
+      "candidate_id": 0.0,
+      "full_name": 0.5,
+      "emails": 0.5,
+      "phones": 0.5,
+      "location": 0.5,
+      "links": 0.5,
+      "headline": 0.5,
+      "years_experience": 0.0,
+      "skills": 0.5,
+      "experience": 0.5,
+      "education": 0.0
+    }
+  },
+  "provenance": [
+    {
+      "field": "candidate_id",
+      "source": "Missing",
+      "method": "missing"
+    },
+    {
+      "field": "full_name",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "emails",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "phones",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "location",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "links",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "headline",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "years_experience",
+      "source": "Missing",
+      "method": "missing"
+    },
+    {
+      "field": "skills",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "experience",
+      "source": "Unknown",
+      "method": "merged"
+    },
+    {
+      "field": "education",
+      "source": "Missing",
+      "method": "missing"
+    }
+  ]
+}
